@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MatikaNusa — 7 Trik Matematika yang Jarang Diajarkan (Bagian 1)</title>
+  <meta name="description" content="7 trik matematika praktis yang membuat perhitungan lebih cepat — cocok untuk pelajar dan siapa saja yang ingin cepat dalam berhitung."/>
+  
+  <script>
+    window.MathJax = {
+      // Pengaturan untuk memastikan tanda dolar tunggal ($...$) dikenali untuk matematika inline.
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      // Pengaturan untuk meningkatkan kompatibilitas CSP
+      options: {
+        processHtmlClass: 'tex2jax_process',
+        ignoreHtmlClass: 'tex2jax_ignore'
+      },
+      // Menggunakan ekstensi ES5 untuk kompatibilitas browser
+      loader: {
+        load: ['input/tex', 'output/chtml', 'ui/menu']
+      }
+    };
+  </script>
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/startup.js">
+  </script>
+  
+  <style>
+       /* Variabel Warna dan Font Baru - NUANSA MATEMATIKA */
+    :root{
+      --bg:#0f1419;
+      --card:#1a1f2e;
+      --accent:#6366f1;
+      --secondary:#ec4899;
+      --muted:#94a3b8;
+      --code-bg:#0f172a;
+      --maxw:960px;
+      font-family: 'Poppins', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: #e2e8f0; line-height: 1.7; }
+    .wrap { max-width: var(--maxw); margin: 40px auto; padding: 0 20px; }
+
+    /* Header Situs */
+    header.site {
+      display: flex; align-items: center; gap: 16px; margin-bottom: 24px;
+    }
+    .logo {
+      width: 50px; height: 50px; border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), #06b6d4);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 18px; box-shadow: 0 4px 12px rgba(99,102,241,0.4);
+    }
+    .brand h1 { margin: 0; font-size: 22px; font-weight: 700; color: var(--accent); }
+    .brand p { margin: 2px 0 0 0; color: var(--muted); font-size: 14px; }
+
+    /* Main Card / Konten */
+    main.card { 
+      background: var(--card); border-radius: 16px; padding: 30px; 
+      box-shadow: 0 10px 30px rgba(99,102,241,0.15); 
+    }
+    .meta { 
+      display: flex; flex-wrap: wrap; gap: 8px 16px; color: var(--muted); 
+      font-size: 14px; margin-bottom: 15px; 
+    }
+    h2.title { 
+      margin: 6px 0 10px 0; font-size: 32px; font-weight: 800; line-height: 1.3; 
+      color: #e2e8f0;
+    }
+    .lead { color: #cbd5e1; margin-bottom: 10px; font-size: 18px; }
+
+    /* Section Trik */
+    .section { padding: 25px 0; border-top: 1px solid #334155; }
+    .section:first-of-type { border-top: none; }
+    .section h3 { 
+      margin: 0 0 12px 0; font-size: 24px; color: var(--accent); 
+      font-weight: 700; border-left: 4px solid var(--accent); padding-left: 10px;
+    }
+    .section p { margin: 0 0 15px 0; color: #cbd5e1; }
+    
+    /* Blok Contoh & Rumus */
+    .example-box {
+      background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(6,182,212,0.05)); 
+      border-left: 4px solid var(--secondary);
+      padding: 15px; border-radius: 8px; margin: 15px 0;
+      border: 1px solid rgba(99,102,241,0.2);
+    }
+    .example-box strong { color: var(--secondary); }
+    
+    .code-block { 
+      background: var(--code-bg); color: #a5f3fc; padding: 12px; 
+      border-radius: 8px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Droid Sans Mono', monospace; 
+      font-size: 15px; margin: 10px 0; overflow-x: auto;
+      border: 1px solid rgba(99,102,241,0.2);
+    }
+    
+    /* LaTeX Formatting */
+    .MathJax {
+      background-color: transparent; 
+      padding: 0;
+      border-radius: 0;
+      color: #a5f3fc;
+    }
+    
+    /* Grid dan Sidebar */
+    .grid { display: grid; grid-template-columns: 1fr 300px; gap: 30px; }
+    @media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
+
+    aside.card-side {
+      background: linear-gradient(180deg, rgba(99,102,241,0.1), rgba(6,182,212,0.05)); 
+      padding: 20px; border-radius: 10px; height: fit-content;
+      box-shadow: 0 4px 10px rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.15);
+    }
+    .aside h4 { margin: 0 0 10px 0; border-bottom: 2px solid var(--secondary); padding-bottom: 5px; color: #e2e8f0; }
+    .aside ul { color: #cbd5e1; }
+    .aside p { color: #cbd5e1; }
+
+    /* Navigasi (TOC) */
+    nav.toc { margin-bottom: 20px; }
+    nav.toc a { 
+      display: inline-block; background: rgba(99,102,241,0.15); padding: 8px 12px; 
+      border-radius: 20px; color: var(--accent); text-decoration: none; 
+      font-size: 14px; margin: 4px 4px 4px 0; border: 1px solid rgba(99,102,241,0.3);
+      transition: all 0.3s;
+    }
+    nav.toc a:hover { background: rgba(99,102,241,0.25); box-shadow: 0 0 10px rgba(99,102,241,0.3); }
+    
+    /* Tombol Navigasi */
+    .nav-btn-container { 
+        display: flex; justify-content: flex-end; padding: 20px 0; 
+        border-top: 1px solid #334155; margin-top: 20px;
+    }
+    .nav-btn {
+        display: inline-block; padding: 12px 20px; border-radius: 10px; 
+        color: #fff; 
+        text-decoration: none; 
+        font-weight: 600; font-size: 16px;
+        transition: all 0.3s;
+        background: var(--secondary);
+    }
+    .nav-btn:hover { background: #f472b6; box-shadow: 0 0 15px rgba(236,72,153,0.4); }
+
+    .nav-btn.cta-accent {
+        background: var(--accent) !important; 
+        color: #fff !important; 
+    }
+    .nav-btn.cta-accent:hover { box-shadow: 0 0 15px rgba(99,102,241,0.5); }
+    
+    /* Footer */
+    footer { margin-top: 30px; text-align: center; color: var(--muted); font-size: 14px; padding: 10px 0; }
+
+    /* Responsif */
+    @media (max-width: 600px) {
+        h2.title { font-size: 26px; }
+        .wrap { margin: 20px auto; padding: 0 15px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    
+    <header class="site">
+    </header>
+
+    <main class="card" role="main">
+      <div class="meta">
+        <div>Penulis: <strong>Tim MatikaNusa</strong></div>
+        <div>•</div>
+        <div>Tanggal: <strong>12 Desember 2025</strong></div>
+      </div>
+
+      <h2 class="title">7 Trik Matematika yang Jarang Diajarkan di Sekolah, tapi Bikin Ngitung Lebih Cepat</h2>
+      
+      <p class="lead">Hai Sobat MatikaNusa! Pasti kamu sering bingung dan merasa matematika itu rumit, ya? Tenang, kamu tidak sendirian. Banyak pelajar merasa tertekan karena harus menghafal rumus panjang dan melakukan perhitungan yang memakan waktu.</p>
+      
+      <p class="lead">Tapi tahukah kamu? Ada trik-trik rahasia dari para ahli hitung cepat yang jarang sekali diajarkan di sekolah. Trik-trik ini bukan hanya mempersingkat waktu hitung, tapi juga mengubah cara pandangmu terhadap angka.</p>
+      
+      <p class="lead" style="font-style: normal; font-weight: 600; margin-bottom: 25px;">Di artikel ini, kami sudah siapkan 7 Trik Praktis yang bisa langsung kamu coba. Siap-siap, karena menghitung akan menjadi jauh lebih cepat, mudah, dan menyenangkan!</p>
+
+      <nav class="toc" aria-label="Daftar isi singkat">
+        <a href="#t1">1. Angka Belasan</a>
+        <a href="#t2">2. Persentase Cepat</a>
+        <a href="#t3">3. Perkalian Akhiran 5</a>
+        <a href="#t4">4. Perkiraan Akar Kuadrat</a>
+        <a href="matikanusa_part2.html">Trik Lanjutan →</a>
+      </nav>
+
+      <div class="grid">
+        <article>
+
+          <section id="t1" class="section">
+            <h3>1. Trik Perkalian Angka Belasan ($11 \times 11$ sampai $19 \times 19$)</h3>
+            <p>Trik ini adalah cara tercepat untuk mengalikan dua bilangan yang berada di antara 11 sampai 19 tanpa menggunakan perkalian bersusun.</p>
+            <p><strong>Langkah Sederhana (Hanya 3 Tahap):</strong></p>
+            <ol>
+              <li>Basis 10: Jumlahkan bilangan pertama dengan digit satuan dari bilangan kedua.</li>
+              <li>Tambahkan Nol: Tambahkan angka nol (0) di belakang hasil langkah 1. Ini adalah hasil sementara (puluhan).</li>
+              <li>Kalikan Satuan: Kalikan digit satuan dari kedua bilangan tersebut. Kemudian, jumlahkan hasil ini dengan hasil langkah 2.</li>
+            </ol>
+            
+            <div class="example-box">
+              <strong>Contoh Soal:</strong> Hitung $17 \times 14$.
+              <div class="code-block">
+              1. Basis 10: $17 + 4 = 21$<br>
+              2. Tambahkan Nol: $210$<br>
+              3. Kalikan Satuan: $7 \times 4 = 28$<br>
+              4. Hasil Akhir: $210 + 28 = 238$
+              </div>
+              <p>Jadi, $17 \times 14 = 238$.</p>
+            </div>
+          </section>
+
+          <section id="t2" class="section">
+            <h3>2. Cara Cepat Menghitung Persentase dalam Hitungan Detik</h3>
+            <p>Banyak yang tidak tahu bahwa menghitung persentase bisa ditukar! Aturan dasarnya: $a\%$ dari $b$ sama dengan $b\%$ dari $a$.</p>
+            <p>Trik ini sangat berguna jika salah satu angka adalah bilangan yang mudah dihitung persentasenya (seperti $10, 20, 25, 50, 250$).</p>
+            
+            <div class="example-box">
+              <strong>Contoh Soal:</strong> Hitung $12\%$ dari $250$.
+              <div class="code-block">
+              Tukar posisinya:<br>
+              $12\%$ dari $250 \equiv 250\%$ dari $12$<br>
+              $250\%$ sama dengan $\frac{250}{100} = 2.5$<br>
+              $2.5 \times 12 = 30$
+              </div>
+              <p>Atau, jika Anda bingung dengan $250\%$, Anda bisa melihatnya sebagai $2 \times 12 + 0.5 \times 12 = 24 + 6 = 30$. Hasilnya adalah $30$.</p>
+            </div>
+          </section>
+
+          <section id="t3" class="section">
+            <h3>3. Trik Perkalian Bilangan Berakhiran 5 (Kuadrat)</h3>
+            <p>Trik ini berlaku untuk mengkuadratkan bilangan dua digit yang berakhiran $5$, seperti $35 \times 35$ atau $75 \times 75$. Hasilnya selalu mudah dikenali.</p>
+            <p><strong>Langkah-langkah:</strong></p>
+            <ol>
+              <li>Ambil digit puluhan ($n$).</li>
+              <li>Kalikan $n$ dengan $(n+1)$.</li>
+              <li>Tambahkan $25$ di belakang hasil perkalian.</li>
+            </ol>
+            
+            <div class="example-box">
+              <strong>Contoh Soal:</strong> Hitung $85^2$.
+              <div class="code-block">
+              Rumus: $(n \times (n+1))$ diikuti $25$<br>
+              1. Digit puluhan $n = 8$<br>
+              2. $8 \times (8+1) = 8 \times 9 = 72$<br>
+              3. Tambahkan $25$: $7225$
+              </div>
+              <p>Jadi, $85 \times 85 = 7225$.</p>
+            </div>
+          </section>
+
+          <section id="t4" class="section">
+            <h3>4. Trik Akar Kuadrat Perkiraan dengan "Patokan $n^2$"</h3>
+            <p>Mencari akar kuadrat bilangan yang bukan kuadrat sempurna tanpa kalkulator bisa sulit. Trik ini menggunakan rumus sederhana untuk perkiraan yang sangat dekat.</p>
+            
+            <p>Misalkan Anda ingin mencari $\sqrt{N}$.</p>
+            <p><strong>Rumus Cepat (Patokan Kuadrat Terdekat):</strong></p>
+            $$ \sqrt{N} \approx n + \frac{N - n^2}{2n} $$
+            
+            <p>Di mana:</p>
+            <ul style="padding-left: 20px;">
+              <li>$N$ adalah bilangan yang ingin Anda cari akarnya (Contoh: $52$).</li>
+              <li>$n^2$ adalah bilangan kuadrat sempurna terdekat dengan $N$ (Contoh: $49$).</li>
+              <li>$n$ adalah akar kuadrat dari $n^2$ (Contoh: $7$).</li>
+            </ul>
+
+            <div class="example-box">
+              <strong>Contoh Soal:</strong> Perkirakan $\sqrt{52}$.
+              <div class="code-block">
+              1. Tentukan $N = 52$.<br>
+              2. Kuadrat sempurna terdekat: $49$. Jadi, $n^2 = 49$, dan $n = 7$.<br>
+              3. Masukkan nilai ke rumus:<br>
+              $\sqrt{52} \approx 7 + \frac{52 - 49}{2 \times 7}$<br>
+              $\sqrt{52} \approx 7 + \frac{3}{14}$
+              </div>
+              <p>Karena $\frac{3}{14} \approx 0.214$, maka $\sqrt{52} \approx 7.214$. (Nilai asli $\approx 7.211$ — sangat akurat!)</p>
+            </div>
+          </section>
+          
+          <div id="lanjut" class="nav-btn-container">
+              <a href="matikanusa_part2.html" class="nav-btn">Lanjut ke Trik 5–7</a>
+          </div>
+
+        </article>
+
+        <aside class="card-side">
+          <div class="aside">
+            <h4>🧠 Kiat Sukses MatikaNusa</h4>
+            <ul style="padding-left: 20px; color: var(--muted); list-style-type: '✅ ';">
+              <li>Fokus pada logika, bukan hanya hafalan.</li>
+              <li>Praktekkan satu trik setiap hari selama seminggu.</li>
+              <li>Jangan takut salah; kesalahan adalah guru terbaik.</li>
+              <li>Jadikan berhitung cepat sebagai kebiasaan, bukan beban.</li>
+            </ul>
+
+            <h4 style="margin-top: 25px;">💬 Jangan Belajar Sendirian!</h4>
+            <p style="font-size: 14px; margin-bottom: 15px;">Matematika lebih seru kalau ada teman diskusi. Mari bergabung di Saluran WhatsApp MatikaNusa untuk mendapatkan:
+            </p>
+            <ul style="padding-left: 20px; color: var(--muted); font-size: 14px; list-style-type: '👉 ';">
+                <li>Soal tantangan harian.</li>
+                <li>Tips eksklusif dari mentor.</li>
+                <li>Pemberitahuan artikel terbaru.</li>
+            </ul>
+
+            <a href="https://whatsapp.com/channel/0029Vb6oM0g0wajnXRZK5N09" class="nav-btn cta-accent" style="margin-top: 15px;">
+                Gabung Saluran WhatsApp Sekarang!
+            </a>
+          </div>
+        </aside>
+
+      </div>
+
+      <footer>
+        &copy; 2025 MatikaNusa — Rumus, tips & trik matematika untuk pelajar Indonesia
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
