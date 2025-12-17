@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MatikaNusa — Pertidaksamaan Nilai Mutlak</title>
+<meta name="description" content="Pembahasan lengkap pertidaksamaan nilai mutlak sesuai materi kalkulus, disertai makna geometris, pembuktian, dan contoh soal bertahap." />
+
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<style>
+:root{
+  --bg:#0f1419;
+  --card:#1a1f2e;
+  --accent:#6366f1;
+  --secondary:#ec4899;
+  --muted:#94a3b8;
+  --maxw:960px;
+  font-family:'Poppins',Inter,system-ui;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:#e2e8f0;line-height:1.8}
+.wrap{max-width:var(--maxw);margin:40px auto;padding:0 20px}
+header{margin-bottom:25px}
+header h1{margin:0;color:var(--accent);font-size:32px;font-weight:800}
+header p{margin-top:8px;color:var(--muted)}
+main.card{background:var(--card);padding:32px;border-radius:18px;box-shadow:0 10px 30px rgba(99,102,241,.15)}
+.section{padding:28px 0;border-top:1px solid #334155}
+.section:first-child{border-top:none}
+.section h2{color:var(--accent);margin-bottom:12px;border-left:4px solid var(--accent);padding-left:12px}
+.section p{color:#cbd5e1;margin-bottom:14px}
+.box{background:rgba(99,102,241,.1);border-left:4px solid var(--secondary);padding:16px;border-radius:12px;margin:18px 0}
+.math{color:#a5f3fc}
+.note{background:rgba(236,72,153,.12);padding:16px;border-radius:12px;margin:20px 0}
+footer{text-align:center;color:var(--muted);margin-top:35px;font-size:14px}
+
+/* Tombol besar dan share */
+.btn-large{
+  display:inline-block;
+  padding:16px 28px;
+  border-radius:14px;
+  font-size:18px;
+  font-weight:700;
+  color:#fff;
+  text-decoration:none;
+  background:var(--accent);
+  box-shadow:0 8px 28px rgba(99,102,241,0.18);
+  transition:transform .14s ease,box-shadow .14s ease,filter .14s ease;
+}
+.btn-large:hover{transform:translateY(-4px);box-shadow:0 14px 40px rgba(99,102,241,0.26);filter:brightness(1.03)}
+.btn-large:active{transform:translateY(-2px)}
+.btn-large.secondary{background:var(--secondary);box-shadow:0 8px 28px rgba(236,72,153,0.12)}
+
+.share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.share-link{color:var(--accent);text-decoration:none;font-weight:600}
+.share-note{color:var(--muted);font-size:13px;margin-top:10px}
+
+/* Meta (penulis, tanggal) */
+.meta{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Pertidaksamaan Nilai Mutlak</h1>
+  <div class="meta" style="margin-top:8px;">
+    <span>Penulis: <strong>MatikaNusa</strong></span>
+    <span style="margin:0 8px;color:var(--muted)">•</span>
+    <time datetime="2025-12-17" style="color:var(--muted)">17 Desember 2025</time>
+  </div>
+  <p>Kalkulus Dasar — MatikaNusa</p>
+</header>
+
+<main class="card">
+
+<section class="section">
+  <h2>Pendahuluan</h2>
+  <p>Dalam kalkulus, pertidaksamaan nilai mutlak bukanlah materi pelengkap, melainkan fondasi penting untuk memahami limit, kekontinuan, hingga analisis galat. Sayangnya, banyak siswa mempelajari topik ini hanya sebagai rumus cepat tanpa memahami alasan di baliknya.</p>
+  <p>Melalui artikel ini, MatikaNusa mengajak kamu memahami pertidaksamaan nilai mutlak secara <b>lengkap, runtut, dan bermakna</b>, sesuai dengan materi kuliah kalkulus, tetapi tetap menggunakan bahasa yang ramah dan mudah dipahami.</p>
+</section>
+
+<section class="section">
+  <h2>Pengertian Nilai Mutlak</h2>
+  <p>Secara matematis, nilai mutlak menyatakan <b>jarak suatu bilangan terhadap nol</b> pada garis bilangan. Karena jarak tidak pernah bernilai negatif, maka nilai mutlak selalu bernilai nol atau positif.</p>
+  <div class="box math">$|x| = \begin{cases}
+ x, & x \ge 0 \\
+ -x, & x < 0
+ \end{cases}$</div>
+  <p>Definisi ini menjadi dasar dari seluruh pembahasan pertidaksamaan nilai mutlak.</p>
+</section>
+
+<section class="section">
+  <h2>Pertidaksamaan Nilai Mutlak</h2>
+  <p>Pertidaksamaan nilai mutlak muncul ketika kita membandingkan jarak suatu bilangan dengan bilangan lain. Dua bentuk dasar yang paling sering digunakan adalah:</p>
+  <div class="box math">$|x| < a \quad (a > 0)$</div>
+  <div class="box math">$|x| > a \quad (a > 0)$</div>
+</section>
+
+<section class="section">
+  <h2>Kasus 1: $|x| < a$</h2>
+  <p>Pertidaksamaan ini berarti jarak $x$ terhadap nol <b>kurang dari $a$</b>. Dengan kata lain, $x$ berada di antara $-a$ dan $a$.</p>
+  <div class="box math">$|x| < a \iff -a < x < a$</div>
+  <p><b>Pembuktian:</b> Berdasarkan definisi nilai mutlak, $|x| < a$ berarti baik $x$ maupun $-x$ lebih kecil dari $a$. Kondisi ini hanya mungkin jika $x$ berada di interval $(-a, a)$.</p>
+</section>
+
+<section class="section">
+  <h2>Kasus 2: $|x| > a$</h2>
+  <p>Pertidaksamaan ini menyatakan bahwa jarak $x$ terhadap nol <b>lebih besar dari $a$</b>. Artinya, $x$ terletak di luar interval $(-a, a)$.</p>
+  <div class="box math">$|x| > a \iff x < -a \; \text{atau} \; x > a$</div>
+  <p><b>Pembuktian:</b> Jika jarak suatu bilangan ke nol lebih besar dari $a$, maka bilangan tersebut harus berada di sisi kiri $-a$ atau di sisi kanan $a$.</p>
+</section>
+
+<section class="section">
+  <h2>Bentuk Umum Pertidaksamaan Nilai Mutlak</h2>
+  <p>Dalam kalkulus, pertidaksamaan nilai mutlak sering muncul dalam bentuk umum:</p>
+  <div class="box math">$|ax + b| \le c$</div>
+  <p>Dengan $c \ge 0$, pertidaksamaan ini ekuivalen dengan:</p>
+  <div class="box math">$-c \le ax + b \le c$</div>
+</section>
+
+<section class="section">
+  <h2>Contoh Soal</h2>
+  <p><b>Tentukan himpunan penyelesaian dari:</b> $|2x - 3| \le 5$.</p>
+  <div class="box math">$-5 \le 2x - 3 \le 5$</div>
+  <div class="box math">$-2 \le 2x \le 8$</div>
+  <div class="box math">$-1 \le x \le 4$</div>
+  <p>Jadi, himpunan penyelesaiannya adalah $[-1, 4]$.</p>
+</section>
+
+<section class="section">
+  <h2>Kaitan dengan Limit dalam Kalkulus</h2>
+  <p>Dalam definisi formal limit, pertidaksamaan nilai mutlak digunakan untuk menyatakan kedekatan suatu bilangan:</p>
+  <div class="box math">$|x - a| < \delta$</div>
+  <p>Pertidaksamaan ini menyatakan bahwa $x$ berada cukup dekat dengan $a$. Tanpa pemahaman pertidaksamaan nilai mutlak, konsep limit $\varepsilon$–$\delta$ akan sulit dipahami.</p>
+  <div class="note"><b>Catatan:</b> Nilai mutlak adalah jembatan penting dari aljabar menuju analisis real.</div>
+</section>
+
+<section class="section">
+  <h2>Penutup</h2>
+  <p>Pertidaksamaan nilai mutlak bukan sekadar teknik manipulasi aljabar, tetapi memiliki makna geometris yang kuat. Dengan memahami konsep jarak pada garis bilangan, kamu akan lebih siap menghadapi materi kalkulus lanjutan.</p>
+</section>
+
+<section class="section">
+  <div class="box">
+    <p style="margin:0 0 12px 0;color:var(--muted)">Terus berlatih dan jelajahi lebih banyak trik matematika di dashboard kami.</p>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <a href="dashboard.html" class="btn-large" aria-label="Baca Tips Matematika Lainnya">Baca Tips Matematika Lainnya</a>
+      <a href="https://wa.me/?text=Halo%20!%20Lihat%20tips%20matematika%20dari%20MatikaNusa:%20http://example.com/dashboard.html" class="btn-large secondary" target="_blank" rel="noopener noreferrer">Bagikan via WhatsApp</a>
+    </div>
+    <div class="share-note">Atau salin link untuk dibagikan ke grup atau teman.</div>
+    <div class="share-row">
+      <a class="share-link" href="https://www.instagram.com/rifan.arrifki?igsh=ZmVnYzJwem11MHZo" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a class="share-link" href="https://wa.me/6287755531828" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a class="share-link" href="https://github.com/rifanarrifki1179-dev" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 MatikaNusa — Kalkulus untuk Semua
+</footer>
+
+</main>
+</div>
+</body>
+</html>
